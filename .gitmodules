@@ -1,0 +1,3 @@
+[submodule "opa-ams"]
+	path = opa-ams
+	url = https://github.com/observatorium/opa-ams
