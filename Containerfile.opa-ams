@@ -17,6 +17,7 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 COPY --from=builder /etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/
 COPY --from=builder /opt/opa-ams /bin/opa-ams
+COPY --from=builder /opt/LICENSE /licenses/.
 
 ARG BUILD_DATE
 ARG VERSION
