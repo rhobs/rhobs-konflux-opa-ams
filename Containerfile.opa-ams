@@ -19,6 +19,8 @@ COPY --from=builder /etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/
 COPY --from=builder /opt/opa-ams /bin/opa-ams
 COPY --from=builder /opt/LICENSE /licenses/LICENSE
 
+USER 65532:65532
+
 ARG VERSION
 
 LABEL vendor="Red Hat, Inc." \
