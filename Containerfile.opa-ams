@@ -3,15 +3,12 @@
 
 FROM  quay.io/redhat-services-prod/openshift/boilerplate:image-v8.0.0 AS builder
 
-RUN dnf -y update --allowerasing && \
-dnf -y install ca-certificates tzdata git make bash && \
-update-ca-trust && \
-dnf clean all
+RUN dnf -y update --allowerasing && dnf clean all
 
 ADD opa-ams /opt
 WORKDIR /opt
 
-RUN git update-index --refresh; go mod vendor && make opa-ams
+RUN go build -o opa-ams .
 
 FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
